@@ -18,6 +18,7 @@ package org.apache.rocketmq.common;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+
 import org.apache.rocketmq.common.annotation.ImportantField;
 import org.apache.rocketmq.common.constant.LoggerName;
 import org.apache.rocketmq.common.constant.PermName;
@@ -29,8 +30,18 @@ public class BrokerConfig {
     private static final InternalLogger log = InternalLoggerFactory.getLogger(LoggerName.COMMON_LOGGER_NAME);
 
     private String rocketmqHome = System.getProperty(MixAll.ROCKETMQ_HOME_PROPERTY, System.getenv(MixAll.ROCKETMQ_HOME_ENV));
+
+    {
+        rocketmqHome = "E:\\rocketmq\\distribution";
+    }
+
     @ImportantField
     private String namesrvAddr = System.getProperty(MixAll.NAMESRV_ADDR_PROPERTY, System.getenv(MixAll.NAMESRV_ADDR_ENV));
+
+    {
+        namesrvAddr = "localhost:9876";
+    }
+
     @ImportantField
     private String brokerIP1 = RemotingUtil.getLocalAddress();
     private String brokerIP2 = RemotingUtil.getLocalAddress();
